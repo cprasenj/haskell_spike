@@ -1,12 +1,11 @@
 module Tree where
 
-data QuestionAnswear = QuestionAnswear {question::[Char], answear::[Char]}
-                      | Nothing
-  deriving (Show, Eq)
+data Question = Question Char [Char]
+data Answear = Answear Char [Char]
+
+data QuestionAnswear = QuestionAnswear(Question, Answear) | Nothing
 
 data QuestionAnswearTree = Leaf | Node QuestionAnswearTree QuestionAnswear
-  deriving (Show, Eq)
-
 
 createTree :: QuestionAnswear -> QuestionAnswearTree
 createTree questionAnswearSet = Node Leaf questionAnswearSet
